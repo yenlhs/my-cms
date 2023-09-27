@@ -4,8 +4,7 @@
   "info": {
     "singularName": "portfolio",
     "pluralName": "portfolios",
-    "displayName": "portfolio",
-    "description": ""
+    "displayName": "Portfolio"
   },
   "options": {
     "draftAndPublish": true
@@ -16,9 +15,8 @@
       "type": "string",
       "required": true
     },
-    "description": {
-      "type": "text",
-      "required": true
+    "slug": {
+      "type": "string"
     },
     "url": {
       "type": "string"
