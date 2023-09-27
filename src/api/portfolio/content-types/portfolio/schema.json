@@ -4,7 +4,8 @@
   "info": {
     "singularName": "portfolio",
     "pluralName": "portfolios",
-    "displayName": "Portfolio"
+    "displayName": "Portfolio",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,14 +23,29 @@
       "type": "string"
     },
     "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
+      ]
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "web",
+        "mobile"
       ],
-      "type": "media",
-      "multiple": true
+      "required": true,
+      "default": "web"
+    },
+    "description": {
+      "type": "richtext",
+      "default": "description",
+      "required": true
     }
   }
 }

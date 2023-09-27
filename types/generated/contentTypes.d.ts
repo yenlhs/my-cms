@@ -367,6 +367,7 @@ export interface ApiPortfolioPortfolio extends Schema.CollectionType {
     singularName: 'portfolio';
     pluralName: 'portfolios';
     displayName: 'Portfolio';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -376,6 +377,12 @@ export interface ApiPortfolioPortfolio extends Schema.CollectionType {
     slug: Attribute.String;
     url: Attribute.String;
     images: Attribute.Media;
+    category: Attribute.Enumeration<['web', 'mobile']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'web'>;
+    description: Attribute.RichText &
+      Attribute.Required &
+      Attribute.DefaultTo<'description'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
