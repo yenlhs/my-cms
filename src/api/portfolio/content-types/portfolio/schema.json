@@ -46,6 +46,11 @@
       "type": "richtext",
       "default": "description",
       "required": true
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

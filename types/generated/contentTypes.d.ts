@@ -383,6 +383,9 @@ export interface ApiPortfolioPortfolio extends Schema.CollectionType {
     description: Attribute.RichText &
       Attribute.Required &
       Attribute.DefaultTo<'description'>;
+    featured: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
