@@ -676,6 +676,39 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiCertificationCertification extends Schema.CollectionType {
+  collectionName: 'certifications';
+  info: {
+    singularName: 'certification';
+    pluralName: 'certifications';
+    displayName: 'Certification';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    badge: Attribute.Media;
+    url: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::certification.certification',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::certification.certification',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPortfolioPortfolio extends Schema.CollectionType {
   collectionName: 'portfolios';
   info: {
@@ -690,7 +723,7 @@ export interface ApiPortfolioPortfolio extends Schema.CollectionType {
   attributes: {
     title: Attribute.String & Attribute.Required;
     slug: Attribute.String;
-    url: Attribute.String;
+    appurl: Attribute.String;
     images: Attribute.Media;
     category: Attribute.Enumeration<['web', 'mobile']> &
       Attribute.Required &
@@ -701,6 +734,7 @@ export interface ApiPortfolioPortfolio extends Schema.CollectionType {
     featured: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
+    repourl: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -769,6 +803,7 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::certification.certification': ApiCertificationCertification;
       'api::portfolio.portfolio': ApiPortfolioPortfolio;
       'api::profile.profile': ApiProfileProfile;
     }
