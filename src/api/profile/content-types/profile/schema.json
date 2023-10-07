@@ -31,9 +31,6 @@
         "videos",
         "audios"
       ]
-    },
-    "linkedinurl": {
-      "type": "string"
     }
   }
 }
