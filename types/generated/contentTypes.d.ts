@@ -759,6 +759,7 @@ export interface ApiProfileProfile extends Schema.CollectionType {
     singularName: 'profile';
     pluralName: 'profiles';
     displayName: 'Profile';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -769,6 +770,7 @@ export interface ApiProfileProfile extends Schema.CollectionType {
       Attribute.DefaultTo<'Fullstack Developer'>;
     aboutme: Attribute.Text & Attribute.Required;
     image: Attribute.Media;
+    linkedinurl: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
