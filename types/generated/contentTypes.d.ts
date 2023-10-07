@@ -788,6 +788,38 @@ export interface ApiProfileProfile extends Schema.CollectionType {
   };
 }
 
+export interface ApiSkillSkill extends Schema.CollectionType {
+  collectionName: 'skills';
+  info: {
+    singularName: 'skill';
+    pluralName: 'skills';
+    displayName: 'Skill';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    rating: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::skill.skill',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::skill.skill',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Shared {
     export interface ContentTypes {
@@ -807,6 +839,7 @@ declare module '@strapi/strapi' {
       'api::certification.certification': ApiCertificationCertification;
       'api::portfolio.portfolio': ApiPortfolioPortfolio;
       'api::profile.profile': ApiProfileProfile;
+      'api::skill.skill': ApiSkillSkill;
     }
   }
 }
