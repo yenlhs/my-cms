@@ -54,6 +54,9 @@
     },
     "repourl": {
       "type": "string"
+    },
+    "techstack": {
+      "type": "json"
     }
   }
 }
