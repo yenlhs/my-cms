@@ -736,6 +736,8 @@ export interface ApiPortfolioPortfolio extends Schema.CollectionType {
       Attribute.DefaultTo<false>;
     repourl: Attribute.String;
     techstack: Attribute.JSON;
+    googleplaystoreurl: Attribute.String;
+    applestoreurl: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
