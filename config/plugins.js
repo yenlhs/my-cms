@@ -1,4 +1,4 @@
-export default ({ env }) => ({
+module.exports = ({ env }) => ({
   upload: {
     config: {
       provider: "aws-s3",
@@ -10,6 +10,15 @@ export default ({ env }) => ({
           params: {
             Bucket: env("AWS_BUCKET_NAME"),
           },
+        },
+      },
+      // These parameters could solve issues with ACL public-read access — see [this issue](https://github.com/strapi/strapi/issues/5868) for details
+      actionOptions: {
+        upload: {
+          ACL: null,
+        },
+        uploadStream: {
+          ACL: null,
         },
       },
     },
